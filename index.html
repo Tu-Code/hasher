@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Hasher</title>
+    </header>
+
+    <body>
+        <h1>This is a hasher. Enter any word and get it in gibberish</h1>
+        <input id = 'user' placeholder="Hello" type ='text'>
+        <button id = 'butt'> Click to see gib</button>
+        <div id = 'ans'></div>
+
+        <script>
+
+            let new_word = ''
+            let word = []
+            let bet = 'abcdefghijklmnopqrstuvwxyz'
+            let b_len = bet.length
+            let BET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            document.getElementById('butt').addEventListener('click', (e) =>{
+                let a = document.getElementById('user').value
+                console.log(a)
+                console.log(a.length)
+
+                for (let i = 0; i < bet.length ; i ++){
+                    for (let x = 0; x < a.length; x ++)  {
+                        if (a[x] == bet[i] || a[x] == BET[i]) {
+                            word.push(bet[b_len - (x+1)])
+                        }                      
+                    }    //console.log("heu")               
+                    
+                }
+                for (let i = 0; i < word.length ; i++){
+                   new_word += word[i]
+                }
+                console.log(new_word)
+                document.getElementById('ans').innerHTML = new_word;
+                word = []
+                new_word = ''
+            })
+            
+
+        </script>
+    </body>
+</html>
